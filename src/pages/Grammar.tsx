@@ -1,7 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
-import { grammarByLevel } from "@/data/grammer_index";
+import { grammarByLevel } from "@/data/Index/grammer_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 

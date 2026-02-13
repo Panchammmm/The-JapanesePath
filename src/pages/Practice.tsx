@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { practiceByLevel } from "@/data/practice_index";
+import { practiceByLevel } from "@/data/Index/practice_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";

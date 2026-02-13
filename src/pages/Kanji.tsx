@@ -1,6 +1,6 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { kanjiByLevel } from "@/data/kanji_index";
+import { kanjiByLevel } from "@/data/Index/kanji_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 

@@ -1,14 +1,20 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Volume2 } from "lucide-react";
-import { vocabulary } from "@/data/vocabulary";
+import { vocabularyByLevel } from "@/data/Index/vocabulary_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 const Vocabulary = () => {
   const { levelId } = useParams();
   const level = levels.find((l) => l.id === levelId);
-  const words = vocabulary[levelId || ""];
+  
+  // Safely access words for the level
+    const words =
+      levelId && levelId in vocabularyByLevel
+        ? vocabularyByLevel[levelId as keyof typeof vocabularyByLevel]
+        : undefined;
+
   if (!level || !words) return <Navigate to="/levels" replace />;
 
   return (

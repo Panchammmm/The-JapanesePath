@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { reading } from "@/data/reading";
+import { readingByLevel  } from "@/data/Index/reading_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 
@@ -12,7 +12,13 @@ const Reading = () => {
   const [answers, setAnswers] = useState<Record<string, number | null>>({});
 
   const level = levels.find((l) => l.id === levelId);
-  const passages = reading[levelId || ""];
+  
+  // Safely access passages for the level
+    const passages =
+      levelId && levelId in readingByLevel
+        ? readingByLevel[levelId as keyof typeof readingByLevel]
+        : undefined;
+
   if (!level || !passages) return <Navigate to="/levels" replace />;
 
   const handleAnswer = (key: string, idx: number) => {
