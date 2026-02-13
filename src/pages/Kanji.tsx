@@ -1,13 +1,19 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { kanji } from "@/data/kanji";
+import { kanjiByLevel } from "@/data/kanji_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 const Kanji = () => {
   const { levelId } = useParams();
   const level = levels.find((l) => l.id === levelId);
-  const items = kanji[levelId || ""];
+
+  // Safely access kanji items for the level
+    const items =
+      levelId && levelId in kanjiByLevel
+        ? kanjiByLevel[levelId as keyof typeof kanjiByLevel]
+        : undefined;
+  
   if (!level || !items) return <Navigate to="/levels" replace />;
 
   return (

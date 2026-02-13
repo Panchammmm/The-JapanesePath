@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { practice } from "@/data/practice";
+import { practiceByLevel } from "@/data/practice_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
@@ -13,7 +13,13 @@ const Practice = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const level = levels.find((l) => l.id === levelId);
-  const questions = practice[levelId || ""];
+
+  // Safely access questions for the level
+    const questions =
+      levelId && levelId in practiceByLevel
+        ? practiceByLevel[levelId as keyof typeof practiceByLevel]
+        : undefined;
+
   if (!level || !questions) return <Navigate to="/levels" replace />;
 
   const score = submitted

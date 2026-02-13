@@ -5,7 +5,7 @@ import { BookOpen, Languages, PenTool, ClipboardCheck, ArrowRight } from "lucide
 import { levels } from "@/data/levels";
 
 const features = [
-  { icon: BookOpen, title: "Structured Roadmap", desc: "Follow a clear path from N5 to N2" },
+  { icon: BookOpen, title: "Structured Roadmap", desc: "Follow a clear path from N5 to N3" },
   { icon: Languages, title: "Grammar Explained", desc: "Simple breakdowns with examples" },
   { icon: PenTool, title: "Kanji with Meaning", desc: "Learn readings and stroke order" },
   { icon: ClipboardCheck, title: "Practice Questions", desc: "Test yourself with quizzes" },
@@ -22,7 +22,7 @@ const Index = () => (
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
           Learn Japanese from{" "}
-          <span className="text-primary">N5 to N2</span>
+          <span className="text-primary">N5 to N3</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
           Grammar, vocabulary, kanji & practice — all in one place. A structured path for JLPT success.
@@ -63,7 +63,7 @@ const Index = () => (
     {/* Level Cards */}
     <section className="container mx-auto px-4 py-16 border-t">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">JLPT Levels</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {levels.map((level) => (
           <Card key={level.id} className="group hover:shadow-md transition-all hover:-translate-y-1">
             <CardHeader>

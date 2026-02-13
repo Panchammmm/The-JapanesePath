@@ -24,9 +24,4 @@ export const practice: Record<string, PracticeQuestion[]> = {
     { question: "毎日運動する___しています。", options: ["ことに", "ように", "わけに", "ために"], answer: 1, type: "grammar" },
     { question: "What does 努力 (どりょく) mean?", options: ["influence", "effort", "decision", "situation"], answer: 1, type: "vocabulary" },
   ],
-  n2: [
-    { question: "What does 貢献 (こうけん) mean?", options: ["contribution", "maintenance", "tendency", "countermeasure"], answer: 0, type: "vocabulary" },
-    { question: "物価は上がる___だ。", options: ["一方", "以上", "以下", "途中"], answer: 0, type: "grammar" },
-    { question: "What does 傾向 (けいこう) mean?", options: ["contribution", "tendency", "grasp", "maintenance"], answer: 1, type: "vocabulary" },
-  ],
 };

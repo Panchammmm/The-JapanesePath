@@ -1,14 +1,20 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
-import { grammar } from "@/data/grammar";
+import { grammarByLevel } from "@/data/grammer_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 const Grammar = () => {
   const { levelId } = useParams();
   const level = levels.find((l) => l.id === levelId);
-  const points = grammar[levelId || ""];
+
+  // Safely access grammar points for the level
+  const points =
+    levelId && levelId in grammarByLevel
+      ? grammarByLevel[levelId as keyof typeof grammarByLevel]
+      : undefined;
+
   if (!level || !points) return <Navigate to="/levels" replace />;
 
   return (

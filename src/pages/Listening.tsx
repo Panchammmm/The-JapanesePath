@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
-import { listening } from "@/data/listening";
+import { listeningByLevel } from "@/data/listening_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 
@@ -13,7 +13,13 @@ const Listening = () => {
   const [playing, setPlaying] = useState<number | null>(null);
 
   const level = levels.find((l) => l.id === levelId);
-  const questions = listening[levelId || ""];
+
+  // Safely access listening questions for the level
+    const questions =
+      levelId && levelId in listeningByLevel
+        ? listeningByLevel[levelId as keyof typeof listeningByLevel]
+        : undefined;
+
   if (!level || !questions) return <Navigate to="/levels" replace />;
 
   return (

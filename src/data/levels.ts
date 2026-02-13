@@ -32,12 +32,4 @@ export const levels: Level[] = [
     difficulty: "Intermediate",
     color: "bg-amber-100 text-amber-700",
   },
-  {
-    id: "n2",
-    name: "N2",
-    title: "Upper-Intermediate",
-    description: "Near-fluent comprehension of newspapers, lectures, and complex written materials.",
-    difficulty: "Upper-Intermediate",
-    color: "bg-purple-100 text-purple-700",
-  },
 ];

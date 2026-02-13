@@ -7,7 +7,7 @@ const Footer = () => (
         <div>
           <h3 className="font-semibold mb-3">NihongoPath</h3>
           <p className="text-sm text-muted-foreground">
-            A structured path to mastering Japanese, from N5 to N2.
+            A structured path to mastering Japanese, from N5 to N3.
           </p>
         </div>
         <div>
