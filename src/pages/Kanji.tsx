@@ -1,66 +1,114 @@
 import { useParams, Navigate } from "react-router-dom";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { kanjiByLevel } from "@/data/Index/kanji_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
+import KanjiDrawingPad from "@/components/KanjiDrawingPad";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import type { KanjiItem } from "@/types/kanji";
 
+/* Kanji Card Component */
+const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Card className="overflow-hidden">
+      {/* Character */}
+      <div className="bg-muted/50 flex items-center justify-center py-8">
+        <span className="text-7xl font-japanese text-primary">
+          {kanji.character}
+        </span>
+      </div>
+
+      <CardContent className="p-5 space-y-4">
+        {/* Meaning */}
+        <p className="text-lg font-semibold">{kanji.meaning}</p>
+
+        {/* Readings */}
+        <div className="grid grid-cols-2 gap-2 text-sm">
+          <div>
+            <span className="text-muted-foreground">Onyomi:</span>
+            <span className="ml-1 font-japanese">{kanji.onyomi}</span>
+          </div>
+          <div>
+            <span className="text-muted-foreground">Kunyomi:</span>
+            <span className="ml-1 font-japanese">{kanji.kunyomi}</span>
+          </div>
+        </div>
+
+        {/* Examples */}
+        <div className="space-y-1">
+          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+            Examples
+          </p>
+          {kanji.examples.map((ex, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-between text-sm bg-muted/50 rounded px-2 py-1"
+            >
+              <span className="font-japanese">
+                {ex.word}（{ex.reading}）
+              </span>
+              <span className="text-muted-foreground">{ex.meaning}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Collapsible Stroke Practice */}
+        <div className="border-t pt-3">
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="w-full flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground transition"
+          >
+            Stroke Order Practice Area
+            {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+
+          <div
+            className={`transition-all duration-300 overflow-hidden ${
+              open ? "max-h-[500px] opacity-100 mt-3" : "max-h-0 opacity-0"
+            }`}
+          >
+            <KanjiDrawingPad />
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+/* Main Page Component */
 const Kanji = () => {
   const { levelId } = useParams();
   const level = levels.find((l) => l.id === levelId);
 
-  // Safely access kanji items for the level
-    const items =
-      levelId && levelId in kanjiByLevel
-        ? kanjiByLevel[levelId as keyof typeof kanjiByLevel]
-        : undefined;
-  
+  const items =
+    levelId && levelId in kanjiByLevel
+      ? (kanjiByLevel[levelId as keyof typeof kanjiByLevel] as KanjiItem[])
+      : undefined;
+
   if (!level || !items) return <Navigate to="/levels" replace />;
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <PageBreadcrumb items={[
-        { label: "Home", to: "/" },
-        { label: "Levels", to: "/levels" },
-        { label: level.name, to: `/levels/${levelId}` },
-        { label: "Kanji" },
-      ]} />
+      <PageBreadcrumb
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Levels", to: "/levels" },
+          { label: level.name, to: `/levels/${levelId}` },
+          { label: "Kanji" },
+        ]}
+      />
+
       <h1 className="text-3xl font-bold mb-2">{level.name} Kanji</h1>
-      <p className="text-muted-foreground mb-8">Essential kanji characters for {level.name}.</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((k, i) => (
-          <Card key={i} className="overflow-hidden">
-            <div className="bg-muted/50 flex items-center justify-center py-8">
-              <span className="text-7xl font-japanese text-primary">{k.character}</span>
-            </div>
-            <CardContent className="p-5 space-y-3">
-              <p className="text-lg font-semibold">{k.meaning}</p>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div>
-                  <span className="text-muted-foreground">Onyomi:</span>
-                  <span className="ml-1 font-japanese">{k.onyomi}</span>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">Kunyomi:</span>
-                  <span className="ml-1 font-japanese">{k.kunyomi}</span>
-                </div>
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Examples</p>
-                {k.examples.map((ex, j) => (
-                  <div key={j} className="flex items-center justify-between text-sm bg-muted/50 rounded px-2 py-1">
-                    <span className="font-japanese">{ex.word}（{ex.reading}）</span>
-                    <span className="text-muted-foreground">{ex.meaning}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="border-t pt-3">
-                <p className="text-xs text-muted-foreground text-center">Stroke order practice area</p>
-                <div className="mt-2 h-16 rounded border-2 border-dashed border-muted flex items-center justify-center text-muted-foreground text-sm">
-                  ✎ Practice here
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+      <p className="text-muted-foreground mb-8">
+        Essential kanji characters for {level.name}.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        {items.map((kanji, index) => (
+          <KanjiCard key={index} kanji={kanji} />
         ))}
       </div>
     </div>
