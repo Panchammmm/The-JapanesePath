@@ -7,6 +7,13 @@ import PageBreadcrumb from "@/components/PageBreadcrumb";
 import KanjiDrawingPad from "@/components/KanjiDrawingPad";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { KanjiItem } from "@/types/kanji";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import KanjiStrokeDiagram from "@/components/KanjiStrokeDiagram";
 
 /* Kanji Card Component */
 const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
@@ -26,16 +33,43 @@ const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
         <p className="text-lg font-semibold">{kanji.meaning}</p>
 
         {/* Readings */}
-        <div className="grid grid-cols-2 gap-2 text-sm">
-          <div>
-            <span className="text-muted-foreground">Onyomi:</span>
-            <span className="ml-1 font-japanese">{kanji.onyomi}</span>
+        <TooltipProvider>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+
+            {/* Onyomi */}
+            <div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="text-muted-foreground cursor-help">
+                    Onyomi:
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-xs text-xs">
+                  Chinese-derived reading of the kanji.
+                  Often used in compound words (jukugo).
+                </TooltipContent>
+              </Tooltip>
+              <span className="ml-1 font-japanese">{kanji.onyomi}</span>
+            </div>
+
+            {/* Kunyomi */}
+            <div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="text-muted-foreground cursor-help">
+                    Kunyomi:
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-xs text-xs">
+                  Native Japanese reading of the kanji.
+                  Often used when the kanji appears alone.
+                </TooltipContent>
+              </Tooltip>
+              <span className="ml-1 font-japanese">{kanji.kunyomi}</span>
+            </div>
+
           </div>
-          <div>
-            <span className="text-muted-foreground">Kunyomi:</span>
-            <span className="ml-1 font-japanese">{kanji.kunyomi}</span>
-          </div>
-        </div>
+        </TooltipProvider>
 
         {/* Examples */}
         <div className="space-y-1">
@@ -59,17 +93,20 @@ const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
         <div className="border-t pt-3">
           <button
             onClick={() => setOpen((prev) => !prev)}
-            className="w-full flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground transition"
+            className="w-full flex items-center justify-center gap-2 pt-1 text-xs font-medium text-muted-foreground hover:text-foreground transition"
           >
             Stroke Order Practice Area
             {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
 
           <div
-            className={`transition-all duration-300 overflow-hidden ${
-              open ? "max-h-[500px] opacity-100 mt-3" : "max-h-0 opacity-0"
-            }`}
+            className={`transition-all duration-300 overflow-hidden ${open ? "opacity-100 mt-3" : "max-h-0 opacity-0"
+              }`}
           >
+            <div className="pt-2 pb-2">
+              <KanjiStrokeDiagram character={kanji.character} />
+            </div>
+
             <KanjiDrawingPad />
           </div>
         </div>
@@ -108,7 +145,7 @@ const Kanji = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         {items.map((kanji, index) => (
-          <KanjiCard key={index} kanji={kanji} />
+          <KanjiCard key={kanji.character} kanji={kanji} />
         ))}
       </div>
     </div>
