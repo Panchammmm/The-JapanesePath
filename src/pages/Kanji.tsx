@@ -127,6 +127,8 @@ const Kanji = () => {
 
   if (!level || !items) return <Navigate to="/levels" replace />;
 
+  console.log(items.map((k) => k.character).join(" "));
+
   return (
     <div className="container mx-auto px-4 py-10">
       <PageBreadcrumb
@@ -140,7 +142,11 @@ const Kanji = () => {
 
       <h1 className="text-3xl font-bold mb-2">{level.name} Kanji</h1>
       <p className="text-muted-foreground mb-8">
-        Essential kanji characters for {level.name}.
+        Essential{" "}
+        <span className="font-bold text-destructive text-lg">
+          '{items.length}'
+        </span>{" "}
+        kanji characters for {level.name}.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">

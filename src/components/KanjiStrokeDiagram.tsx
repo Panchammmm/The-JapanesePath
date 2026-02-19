@@ -49,9 +49,9 @@ const KanjiStrokeDiagram = ({ character }: Props) => {
   if (!svgContent) return null;
 
   return (
-    <div className="w-full border rounded-md bg-white p-2">
-      <div className="w-40 h-40 flex items-center justify-center mx-auto overflow-hidden">
-        <div className="scale-[1.125] pb-4" dangerouslySetInnerHTML={{ __html: svgContent }} />
+    <div className="w-full border rounded-md bg-white p-2 overflow-hidden">
+      <div className="w-40 h-40 flex items-center justify-center mx-auto">
+        <div className="scale-[1.125] pb-5" dangerouslySetInnerHTML={{ __html: svgContent }} />
       </div>
     </div>
   );
