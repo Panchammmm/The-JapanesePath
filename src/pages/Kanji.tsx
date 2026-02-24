@@ -1,5 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { kanjiByLevel } from "@/data/Index/kanji_index";
 import { levels } from "@/data/levels";
@@ -15,10 +15,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import KanjiStrokeDiagram from "@/components/KanjiStrokeDiagram";
+import SmartPagination from "@/components/SmartPagination";
 
-const DEFAULT_LIMIT = 12;
+const DEFAULT_LIMIT = 9;
+const SWIPE_THRESHOLD = 60;
 
-/*  Kanji Card  */
+/* Kanji Card */
 
 const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
   const [open, setOpen] = useState(false);
@@ -66,11 +68,11 @@ const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
           </div>
         </TooltipProvider>
 
-        {/* Examples */}
         <div className="space-y-1">
           <p className="text-xs text-muted-foreground uppercase">
             Examples
           </p>
+
           {kanji.examples.map((ex, i) => (
             <div
               key={i}
@@ -106,25 +108,28 @@ const KanjiCard = ({ kanji }: { kanji: KanjiItem }) => {
   );
 };
 
-/*  Main Page  */
+/* Main Page */
 
 const Kanji = () => {
   const { levelId } = useParams();
   const level = levels.find((l) => l.id === levelId);
 
-  const items =
+  const items: KanjiItem[] | undefined =
     levelId && levelId in kanjiByLevel
-      ? (kanjiByLevel[levelId as keyof typeof kanjiByLevel] as KanjiItem[])
+      ? kanjiByLevel[levelId as keyof typeof kanjiByLevel]
       : undefined;
 
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
+
   const touchStartX = useRef<number | null>(null);
 
   /* Filter */
+
   const filtered = useMemo(() => {
     if (!items) return [];
+
     return items.filter((k) =>
       `${k.character} ${k.meaning} ${k.onyomi} ${k.kunyomi}`
         .toLowerCase()
@@ -135,17 +140,23 @@ const Kanji = () => {
   const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / limit));
 
-  const start = (page - 1) * limit;
-  const end = Math.min(start + limit, total);
+  /* Reset page if result shrink */
 
-  const current = filtered.slice(start, start + limit);
+  useEffect(() => {
+    if (page > totalPages) {
+      setPage(1);
+    }
+  }, [totalPages, page]);
 
-  /* Page change */
-  const goToPage = (p: number) => {
-    setPage(p);
-  };
+  /* Memoized current items */
 
-  /* Swipe */
+  const current = useMemo(() => {
+    const start = (page - 1) * limit;
+    return filtered.slice(start, start + limit);
+  }, [filtered, page, limit]);
+
+  /* Mobile Swipe */
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -155,34 +166,10 @@ const Kanji = () => {
 
     const diff = touchStartX.current - e.changedTouches[0].clientX;
 
-    if (diff > 50 && page < totalPages) goToPage(page + 1);
-    if (diff < -50 && page > 1) goToPage(page - 1);
+    if (diff > SWIPE_THRESHOLD && page < totalPages) setPage(page + 1);
+    if (diff < -SWIPE_THRESHOLD && page > 1) setPage(page - 1);
 
     touchStartX.current = null;
-  };
-
-  /* Smart pagination */
-  const getPages = () => {
-    const pages: (number | "...")[] = [];
-
-    if (totalPages <= 7) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      pages.push(1);
-
-      if (page > 3) pages.push("...");
-
-      const start = Math.max(2, page - 1);
-      const end = Math.min(totalPages - 1, page + 1);
-
-      for (let i = start; i <= end; i++) pages.push(i);
-
-      if (page < totalPages - 2) pages.push("...");
-
-      pages.push(totalPages);
-    }
-
-    return pages;
   };
 
   const noResults = filtered.length === 0 && search !== "";
@@ -191,6 +178,7 @@ const Kanji = () => {
 
   return (
     <div className="container mx-auto px-4 py-10">
+
       <PageBreadcrumb
         items={[
           { label: "Home", to: "/" },
@@ -211,7 +199,8 @@ const Kanji = () => {
       </p>
 
       {/* Search */}
-      <div className="max-w-sm mb-8">
+
+      <div className="max-w-sm mb-2">
         <Input
           placeholder="Search kanji..."
           value={search}
@@ -222,14 +211,23 @@ const Kanji = () => {
         />
       </div>
 
+      {/* Result count */}
+
+      <p className="text-sm text-muted-foreground mb-8">
+        {total} results
+      </p>
+
       {/* No Results */}
+
       {noResults && (
         <div className="text-center py-10 border rounded-xl bg-muted/40">
           <p className="text-lg font-medium">
-            No results for "<span className="text-primary">{search}</span>"
+            No kanji found for "
+            <span className="text-primary">{search}</span>"
           </p>
+
           <p className="text-sm text-muted-foreground mt-1">
-            Try with hiragana or another meaning or reading.
+            Try searching by meaning, onyomi, kunyomi or the character itself.
           </p>
         </div>
       )}
@@ -237,6 +235,7 @@ const Kanji = () => {
       {!noResults && (
         <>
           {/* Grid */}
+
           <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             onTouchStart={handleTouchStart}
@@ -247,69 +246,14 @@ const Kanji = () => {
             ))}
           </div>
 
-          {/* Pagination */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mt-10">
-
-            <div className="text-sm text-muted-foreground">
-              {start + 1}-{end} of {total}
-            </div>
-
-            <div className="flex items-center gap-2 flex-wrap">
-              <button
-                onClick={() => goToPage(page - 1)}
-                disabled={page === 1}
-                className="px-3 py-1 border rounded-md text-sm hover:bg-muted disabled:opacity-40"
-              >
-                ‹ Back
-              </button>
-
-              {getPages().map((p, i) =>
-                p === "..." ? (
-                  <span key={i} className="px-2 text-muted-foreground">
-                    ...
-                  </span>
-                ) : (
-                  <button
-                    key={i}
-                    onClick={() => goToPage(p)}
-                    className={`w-8 h-8 text-sm rounded-full border ${
-                      page === p
-                        ? "bg-primary text-white border-primary"
-                        : "hover:bg-muted"
-                    }`}
-                  >
-                    {p}
-                  </button>
-                )
-              )}
-
-              <button
-                onClick={() => goToPage(page + 1)}
-                disabled={page === totalPages}
-                className="px-3 py-1 border rounded-md text-sm hover:bg-muted disabled:opacity-40"
-              >
-                Next ›
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2 text-sm">
-              Result per page
-              <select
-                value={limit}
-                onChange={(e) => {
-                  setLimit(Number(e.target.value));
-                  setPage(1);
-                }}
-                className="border rounded-md px-2 py-1 bg-japan-red-light hover:bg-inherit cursor-pointer"
-              >
-                <option value={9}>9</option>
-                <option value={12}>12</option>
-                <option value={24}>24</option>
-                <option value={48}>48</option>
-              </select>
-            </div>
-
-          </div>
+          <SmartPagination
+            page={page}
+            total={total}
+            limit={limit}
+            onPageChange={setPage}
+            onLimitChange={setLimit}
+            showLimit={true}
+          />
         </>
       )}
     </div>
