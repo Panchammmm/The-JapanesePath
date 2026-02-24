@@ -31,8 +31,6 @@ const Vocabulary = () => {
     );
   }, [words, search]);
 
-  if (!level || !words) return <Navigate to="/levels" replace />;
-
   const totalPages = Math.max(
     1,
     Math.ceil(filteredWords.length / ITEMS_PER_PAGE)
@@ -63,6 +61,8 @@ const Vocabulary = () => {
   };
 
   const noResults = filteredWords.length === 0 && search.trim() !== "";
+
+  if (!level || !words) return <Navigate to="/levels" replace />;
 
   return (
     <div className="container mx-auto px-4 py-10">
@@ -123,7 +123,7 @@ const Vocabulary = () => {
                 <th className="p-3">Hiragana</th>
                 <th className="p-3">Romaji</th>
                 <th className="p-3">English</th>
-                <th className="p-3">বাংলা</th>
+                <th className="p-3">Bengali</th>
               </tr>
             </thead>
 
