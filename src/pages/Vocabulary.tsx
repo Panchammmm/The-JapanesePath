@@ -1,9 +1,9 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { Volume2 } from "lucide-react";
 import { vocabularyByLevel } from "@/data/Index/vocabulary_index";
 import { levels } from "@/data/levels";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
+import VocabFlashcard from "@/components/VocabFlashcard";
 
 const Vocabulary = () => {
   const { levelId } = useParams();
@@ -27,7 +27,11 @@ const Vocabulary = () => {
       ]} />
       <h1 className="text-3xl font-bold mb-2">{level.name} Vocabulary</h1>
       <p className="text-muted-foreground mb-8">Essential words for {level.name} level.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <VocabFlashcard words={words} />
+
+      {/* Display vocabulary in a responsive grid */}
+      <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-4">
         {words.map((w, i) => (
           <Card key={i} className="hover:shadow-sm transition-shadow">
             <CardContent className="p-5">
@@ -37,9 +41,6 @@ const Vocabulary = () => {
                   <p className="text-sm text-primary font-japanese">{w.reading}</p>
                   <p className="text-muted-foreground mt-2">{w.meaning}</p>
                 </div>
-                <button className="mt-1 p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-primary" aria-label="Play audio">
-                  <Volume2 className="h-4 w-4" />
-                </button>
               </div>
             </CardContent>
           </Card>

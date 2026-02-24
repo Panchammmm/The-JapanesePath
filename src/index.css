@@ -101,3 +101,37 @@
     font-family: 'Outfit', 'Noto Sans JP', sans-serif;
   }
 }
+
+/* Flashcard */
+
+.flashcard-container {
+  perspective: 1200px;
+}
+
+.flashcard {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: relative;
+  width: 100%;
+  height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+  box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.flashcard.flipped {
+  transform: rotateX(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+}
+
+.flashcard-back {
+  transform: rotateX(180deg);
+}
