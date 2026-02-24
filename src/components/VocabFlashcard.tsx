@@ -82,7 +82,7 @@ export default function VocabFlashcard({ words }: Props) {
           {/* Front */}
           <div className="flashcard-face bg-card border flex flex-col items-center justify-center relative">
             <p className="text-5xl font-japanese mb-4">
-              {word.japanese}
+              {word.kanji}
             </p>
 
             <p className="text-zinc-400 text-xs">
@@ -91,13 +91,13 @@ export default function VocabFlashcard({ words }: Props) {
           </div>
 
           {/* Back */}
-          <div className="flashcard-face flashcard-back bg-rose-500 text-white flex flex-col items-center justify-center">
+          <div className="flashcard-face flashcard-back bg-accent-foreground text-white flex flex-col items-center justify-center">
             <p className="text-5xl font-japanese mb-4">
-              {word.japanese}
+              {word.kanji}
             </p>
 
             <p className="text-3xl font-semibold mb-2">
-              ({word.reading})
+              ({word.hiragana})
             </p>
 
             <p className="text-lg opacity-90">
