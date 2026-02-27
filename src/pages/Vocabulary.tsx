@@ -84,7 +84,7 @@ const Vocabulary = () => {
         <span className="font-bold text-destructive text-lg">
           "{words.length}"
         </span>{" "}
-        words for {level.name} level.
+        vocabs for {level.name} level.
       </p>
 
       {/* Search */}
@@ -138,7 +138,7 @@ const Vocabulary = () => {
                 {currentWords.map((word, i) => (
                   <tr
                     key={i}
-                    className="border-t hover:bg-muted/60 transition [&_td]:text-lg"
+                    className="border-t hover:bg-muted/60 transition"
                   >
                     <td className="p-3 font-medium">{word.kanji}</td>
                     <td className="p-3">{word.hiragana}</td>
