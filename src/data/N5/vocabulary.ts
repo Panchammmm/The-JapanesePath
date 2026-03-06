@@ -3,6 +3,8 @@ import type { VocabWord } from "@/types/vocabulary";
 export const vocabulary: VocabWord[] = [
 
   // lesson 1
+  // { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 1]", meaning: "", bengali: "" },
   { romaji: "watashi", hiragana: "わたし", kanji: "私", meaning: "I", bengali: "আমি" },
   { romaji: "watashi-tachi", hiragana: "わたしたち", kanji: "私たち", meaning: "we", bengali: "আমরা" },
   { romaji: "anata", hiragana: "あなた", kanji: "貴方", meaning: "you", bengali: "আপনি / তুমি" },
@@ -34,6 +36,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "nansai", hiragana: "なんさい", kanji: "何歳", meaning: "how old", bengali: "কত বছর বয়স" },
 
   // lesson 2
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 2]", meaning: "", bengali: "" },
   { romaji: "kore", hiragana: "これ", kanji: "これ", meaning: "this (thing here)", bengali: "এটা / এই জিনিস" },
   { romaji: "sore", hiragana: "それ", kanji: "それ", meaning: "that (thing near you)", bengali: "ওটা (তোমার কাছে)" },
   { romaji: "are", hiragana: "あれ", kanji: "あれ", meaning: "that (thing over there)", bengali: "ওটা (ওখানে)" },
@@ -62,6 +66,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "nani", hiragana: "なに", kanji: "何", meaning: "what", bengali: "কি" },
 
   // lesson 3
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 3]", meaning: "", bengali: "" },
   { romaji: "koko", hiragana: "ここ", kanji: "", meaning: "here, this place", bengali: "এখানে" },
   { romaji: "soko", hiragana: "そこ", kanji: "", meaning: "there (near you)", bengali: "ওখানে" },
   { romaji: "asoko", hiragana: "あそこ", kanji: "", meaning: "that place over there", bengali: "ওখানে দূরে" },
@@ -91,6 +97,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "man", hiragana: "まん", kanji: "万", meaning: "ten thousand", bengali: "দশ হাজার" },
 
   // lesson 4
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 4]", meaning: "", bengali: "" },
   { romaji: "okimasu", hiragana: "おきます", kanji: "起きます", meaning: "get up, wake up", bengali: "ঘুম থেকে ওঠা" },
   { romaji: "nemasu", hiragana: "ねます", kanji: "寝ます", meaning: "sleep, go to bed", bengali: "ঘুমানো" },
   { romaji: "hatarakimasu", hiragana: "はたらきます", kanji: "働きます", meaning: "work", bengali: "কাজ করা" },
@@ -147,6 +155,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "eto", hiragana: "えーと", kanji: "", meaning: "well..., let me see", bengali: "উম... ভাবছি" },
 
   // lesson 5
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 5]", meaning: "", bengali: "" },
   { romaji: "ikimasu", hiragana: "いきます", kanji: "行きます", meaning: "go", bengali: "যাওয়া" },
   { romaji: "kimasu", hiragana: "きます", kanji: "来ます", meaning: "come", bengali: "আসা" },
   { romaji: "kaerimasu", hiragana: "かえります", kanji: "帰ります", meaning: "go home, return", bengali: "বাড়ি ফেরা / ফিরে যাওয়া" },
@@ -201,6 +211,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "kyuukou", hiragana: "きゅうこう", kanji: "急行", meaning: "express train", bengali: "এক্সপ্রেস ট্রেন" },
 
   // lesson 6
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 6]", meaning: "", bengali: "" },
   { romaji: "tabemasu", hiragana: "たべます", kanji: "食べます", meaning: "eat", bengali: "খাওয়া" },
   { romaji: "nomimasu", hiragana: "のみます", kanji: "飲みます", meaning: "drink", bengali: "পান করা" },
   { romaji: "suimasu", hiragana: "すいます", kanji: "吸います", meaning: "smoke", bengali: "ধূমপান করা" },
@@ -243,6 +255,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "wakarimashita", hiragana: "わかりました", kanji: "", meaning: "I understand", bengali: "আমি বুঝেছি" },
 
   // lesson 7
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 7]", meaning: "", bengali: "" },
   { romaji: "kirimasu", hiragana: "きります", kanji: "切ります", meaning: "cut", bengali: "কাটা" },
   { romaji: "okurimasu", hiragana: "おくります", kanji: "送ります", meaning: "send", bengali: "পাঠানো" },
   { romaji: "shuurishimasu", hiragana: "しゅうりします", kanji: "修理します", meaning: "repair", bengali: "মেরামত করা" },
@@ -280,6 +294,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "kore kara", hiragana: "これから", kanji: "", meaning: "from now on", bengali: "এখন থেকে" },
 
   // lesson 8
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 8]", meaning: "", bengali: "" },
   { romaji: "kirei", hiragana: "きれい", kanji: "綺麗", meaning: "beautiful, clean", bengali: "সুন্দর, পরিষ্কার" },
   { romaji: "shizuka", hiragana: "しずか", kanji: "静か", meaning: "quiet", bengali: "নীরব, শান্ত" },
   { romaji: "nigiyaka", hiragana: "にぎやか", kanji: "賑やか", meaning: "lively", bengali: "জমজমাট" },
@@ -335,6 +351,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "ga", hiragana: "が", kanji: "", meaning: "but", bengali: "কিন্তু" },
 
   // lesson 9
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 9]", meaning: "", bengali: "" },
   { romaji: "wakarimasu", hiragana: "わかります", kanji: "分かります", meaning: "understand", bengali: "বোঝা" },
   { romaji: "arimasu", hiragana: "あります", kanji: "あります", meaning: "have / exist (things)", bengali: "আছে / থাকা" },
   { romaji: "suki", hiragana: "すき", kanji: "好き", meaning: "like", bengali: "পছন্দ করা" },
@@ -366,6 +384,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "doushite", hiragana: "どうして", kanji: "どうして", meaning: "why", bengali: "কেন" },
 
   // lesson 10
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 10]", meaning: "", bengali: "" },
   { romaji: "arimasu", hiragana: "あります", kanji: "あります", meaning: "exist / be (inanimate)", bengali: "আছে (জড় বস্তু)" },
   { romaji: "imasu", hiragana: "います", kanji: "います", meaning: "exist / be (animate)", bengali: "আছে (জীবিত)" },
   { romaji: "iroiro", hiragana: "いろいろ", kanji: "色々", meaning: "various", bengali: "বিভিন্ন" },
@@ -400,6 +420,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "ya nado", hiragana: "や など", kanji: "や など", meaning: "and so on", bengali: "ইত্যাদি" },
 
   // lesson 11
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 11]", meaning: "", bengali: "" },
   { romaji: "kakarimasu", hiragana: "かかります", kanji: "かかります", meaning: "time takes / it takes", bengali: "সময় লাগে" },
   { romaji: "yasumimasu", hiragana: "やすみます", kanji: "休みます", meaning: "take a day off / rest", bengali: "ছুটি নেওয়া / বিশ্রাম নেওয়া" },
   { romaji: "hitotsu", hiragana: "ひとつ", kanji: "一つ", meaning: "one (counter for things)", bengali: "একটি" },
@@ -446,6 +468,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "dake", hiragana: "だけ", kanji: "だけ", meaning: "only", bengali: "শুধু" },
 
   // lesson 12
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 12]", meaning: "", bengali: "" },
   { romaji: "kantan", hiragana: "かんたん", kanji: "簡単", meaning: "easy, simple", bengali: "সহজ, সরল" },
   { romaji: "chikai", hiragana: "ちかい", kanji: "近い", meaning: "near", bengali: "কাছাকাছি" },
   { romaji: "tooi", hiragana: "とおい", kanji: "遠い", meaning: "far", bengali: "দূরে" },
@@ -486,6 +510,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "hajimete", hiragana: "はじめて", kanji: "初めて", meaning: "for the first time", bengali: "প্রথমবার" },
 
   // lesson 13
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 13]", meaning: "", bengali: "" },
   { romaji: "asobimasu", hiragana: "あそびます", kanji: "遊びます", meaning: "enjoy oneself / play", bengali: "খেলা করা / আনন্দ করা" },
   { romaji: "oyogimasu", hiragana: "およぎます", kanji: "泳ぎます", meaning: "swim", bengali: "সাঁতার কাটা" },
   { romaji: "mukaemasu", hiragana: "むかえます", kanji: "迎えます", meaning: "go to meet / welcome", bengali: "অভ্যর্থনা করা / নিতে যাওয়া" },
@@ -536,6 +562,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "roshia", hiragana: "ロシア", kanji: "ロシア", meaning: "Russia", bengali: "রাশিয়া" },
 
   // lesson 14
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 14", meaning: "", bengali: "" },
   { romaji: "tsukemasu", hiragana: "つけます", kanji: "つけます", meaning: "I'll put it on / turn on", bengali: "আমি এটি চালু করব" },
   { romaji: "keshimasu", hiragana: "けします", kanji: "消します", meaning: "turn off", bengali: "বন্ধ করা" },
   { romaji: "akemasu", hiragana: "あけます", kanji: "開けます", meaning: "I can open it / open", bengali: "আমি এটি খুলতে পারি / খোলা" },
@@ -580,6 +608,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "otsuri", hiragana: "おつり", kanji: "お釣り", meaning: "change", bengali: "খুচরা টাকা" },
 
   // lesson 15
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 15]", meaning: "", bengali: "" },
   { romaji: "tachimasu", hiragana: "たちます", kanji: "立ちます", meaning: "stand up", bengali: "দাঁড়ানো" },
   { romaji: "suwarimasu", hiragana: "すわります", kanji: "座ります", meaning: "sit down", bengali: "বসা" },
   { romaji: "tsukaimasu", hiragana: "つかいます", kanji: "使います", meaning: "use", bengali: "ব্যবহার করা" },
@@ -612,6 +642,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "koukou", hiragana: "こうこう", kanji: "高校", meaning: "senior high school", bengali: "উচ্চ বিদ্যালয়" },
 
   // lesson 16
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 16]", meaning: "", bengali: "" },
   { romaji: "norimasu", hiragana: "のります", kanji: "乗ります", meaning: "ride / get on", bengali: "চড়া / উঠা" },
   { romaji: "densha ni norimasu", hiragana: "でんしゃにのります", kanji: "電車に乗ります", meaning: "ride a train", bengali: "ট্রেনে চড়া" },
   { romaji: "orimasu", hiragana: "おります", kanji: "降ります", meaning: "get off", bengali: "নামা" },
@@ -672,6 +704,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "betonamu", hiragana: "ベトナム", kanji: "ベトナム", meaning: "Vietnam", bengali: "ভিয়েতনাম" },
 
   // lesson 17
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 17]", meaning: "", bengali: "" },
   { romaji: "oboemasu", hiragana: "おぼえます", kanji: "覚えます", meaning: "memorize", bengali: "মুখস্থ করা" },
   { romaji: "wasuremasu", hiragana: "わすれます", kanji: "忘れます", meaning: "forget", bengali: "ভুলে যাওয়া" },
   { romaji: "nakushimasu", hiragana: "なくします", kanji: "なくします", meaning: "lose", bengali: "হারিয়ে ফেলা" },
@@ -711,6 +745,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "odaijini", hiragana: "おだいじに", kanji: "お大事に", meaning: "Take care (when ill)", bengali: "নিজের খেয়াল রাখবেন" },
 
   // lesson 18
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 18]", meaning: "", bengali: "" },
   { romaji: "dekimasu", hiragana: "できます", kanji: "できます", meaning: "can / be able to", bengali: "পারতে পারা" },
   { romaji: "araimasu", hiragana: "あらいます", kanji: "洗います", meaning: "wash", bengali: "ধোয়া" },
   { romaji: "hikimasu", hiragana: "ひきます", kanji: "弾きます", meaning: "play (instrument)", bengali: "বাদ্যযন্ত্র বাজানো" },
@@ -742,6 +778,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "zehi", hiragana: "ぜひ", kanji: "ぜひ", meaning: "by all means", bengali: "অবশ্যই" },
 
   // lesson 19
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 19]", meaning: "", bengali: "" },
   { romaji: "noborimasu", hiragana: "のぼります", kanji: "登ります", meaning: "climb", bengali: "আরোহণ করা" },
   { romaji: "yama ni noborimasu", hiragana: "やまにのぼります", kanji: "山に登ります", meaning: "climb a mountain", bengali: "পাহাড়ে ওঠা" },
   { romaji: "tomarimasu", hiragana: "とまります", kanji: "泊まります", meaning: "stay (overnight)", bengali: "থাকা (রাত কাটানো)" },
@@ -780,6 +818,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "katsushika hokusai", hiragana: "かつしかほくさい", kanji: "葛飾北斎", meaning: "Katsushika Hokusai (Edo period artist)", bengali: "কাতসুশিকা হোকুসাই (এদো যুগের শিল্পী)" },
 
   // lesson 20
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 20]", meaning: "", bengali: "" },
   { romaji: "irimasu", hiragana: "いります", kanji: "要ります", meaning: "need / require", bengali: "প্রয়োজন হওয়া" },
   { romaji: "biza ga irimasu", hiragana: "ビザがいります", kanji: "ビザが要ります", meaning: "need a visa", bengali: "ভিসা প্রয়োজন" },
   { romaji: "shirabemasu", hiragana: "しらべます", kanji: "調べます", meaning: "check / investigate", bengali: "পরীক্ষা করা / খোঁজ নেওয়া" },
@@ -812,6 +852,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "iroiro", hiragana: "いろいろ", kanji: "いろいろ", meaning: "various", bengali: "বিভিন্ন" },
 
   // lesson 21
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 21]", meaning: "", bengali: "" },
   { romaji: "omoimasu", hiragana: "おもいます", kanji: "思う", meaning: "think", bengali: "ভাবা" },
   { romaji: "iimasu", hiragana: "いいます", kanji: "言う", meaning: "say", bengali: "বলা" },
   { romaji: "tarimasu", hiragana: "たります", kanji: "足る", meaning: "be enough / sufficient", bengali: "যথেষ্ট হওয়া" },
@@ -855,6 +897,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "kyaputen kukku", hiragana: "キャプテンクック", kanji: "キャプテン・クック", meaning: "Captain Cook", bengali: "ক্যাপ্টেন কুক" },
 
   // lesson 22
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 22]", meaning: "", bengali: "" },
   { romaji: "kimasu", hiragana: "きます", kanji: "着ます", meaning: "put on (shirt etc.)", bengali: "পরা (শার্ট ইত্যাদি)" },
   { romaji: "shatsu wo kimasu", hiragana: "シャツをきます", kanji: "シャツを着ます", meaning: "put on a shirt", bengali: "শার্ট পরা" },
   { romaji: "hakimasu", hiragana: "はきます", kanji: "はきます", meaning: "put on (shoes / trousers)", bengali: "পরা (জুতা / প্যান্ট)" },
@@ -881,6 +925,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "pari", hiragana: "パリ", kanji: "パリ", meaning: "Paris", bengali: "প্যারিস" },
 
   // lesson 23
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 23]", meaning: "", bengali: "" },
   { romaji: "kikimasu", hiragana: "ききます", kanji: "聞きます", meaning: "ask", bengali: "জিজ্ঞাসা করা" },
   { romaji: "sensei ni kikimasu", hiragana: "せんせいにききます", kanji: "先生に聞きます", meaning: "ask the teacher", bengali: "শিক্ষককে জিজ্ঞাসা করা" },
   { romaji: "mawashimasu", hiragana: "まわします", kanji: "回します", meaning: "turn", bengali: "ঘোরানো" },
@@ -920,6 +966,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "gaikokujin tourokushou", hiragana: "がいこくじんとうろくしょう", kanji: "外国人登録証", meaning: "alien registration card", bengali: "বিদেশি নিবন্ধন কার্ড" },
 
   // lesson 24
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 24]", meaning: "", bengali: "" },
   { romaji: "kuremasu", hiragana: "くれます", kanji: "くれます", meaning: "give (me)", bengali: "আমাকে দেওয়া" },
   { romaji: "tsurete ikimasu", hiragana: "つれていきます", kanji: "連れて行きます", meaning: "take (someone)", bengali: "কাউকে সাথে নিয়ে যাওয়া" },
   { romaji: "tsurete kimasu", hiragana: "つれてきます", kanji: "連れて来ます", meaning: "bring (someone)", bengali: "কাউকে সাথে নিয়ে আসা" },
@@ -944,6 +992,8 @@ export const vocabulary: VocabWord[] = [
   { romaji: "bentou", hiragana: "べんとう", kanji: "弁当", meaning: "box lunch", bengali: "বেন্টো লাঞ্চবক্স" },
 
   // lesson 25
+  { romaji: "", hiragana: "", kanji: "", meaning: "", bengali: "" },
+  { romaji: "", hiragana: "", kanji: "[LESSON 25]", meaning: "", bengali: "" },
   { romaji: "kangaemasu", hiragana: "かんがえます", kanji: "考えます", meaning: "think / consider", bengali: "ভাবা / বিবেচনা করা" },
   { romaji: "tsukimasu", hiragana: "つきます", kanji: "着きます", meaning: "arrive", bengali: "পৌঁছানো" },
   { romaji: "eki ni tsukimasu", hiragana: "えきにつきます", kanji: "駅に着きます", meaning: "arrive at the station", bengali: "স্টেশনে পৌঁছানো" },

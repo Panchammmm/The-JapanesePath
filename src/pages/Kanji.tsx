@@ -188,37 +188,40 @@ const Kanji = () => {
         ]}
       />
 
-      <h1 className="text-3xl font-bold mb-2">{level.name} Kanji</h1>
+      <div className="sm:flex justify-between">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">{level.name} Kanji</h1>
 
-      <p className="text-muted-foreground mb-6">
-        Essential{" "}
-        <span className="font-bold text-destructive text-lg">
-          "{items.length}"
-        </span>{" "}
-        kanji characters
-      </p>
+          <p className="text-muted-foreground mb-6">
+            Essential{" "}
+            <span className="font-bold text-destructive text-lg">
+              "{items.length}"
+            </span>{" "}
+            kanji characters
+          </p>
+        </div>
 
-      {/* Search */}
+        {/* Search */}
+        <div>
+          <div className="max-w-sm mb-2">
+            <Input
+              placeholder="Search by kanji..."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setPage(1);
+              }}
+            />
+          </div>
 
-      <div className="max-w-sm mb-2">
-        <Input
-          placeholder="Search kanji..."
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-        />
+          {/* Result count */}
+          <p className="text-[13px] text-muted-foreground mb-8 ml-3">
+            {total} results
+          </p>
+        </div>
       </div>
 
-      {/* Result count */}
-
-      <p className="text-sm text-muted-foreground mb-8">
-        {total} results
-      </p>
-
       {/* No Results */}
-
       {noResults && (
         <div className="text-center py-10 border rounded-xl bg-muted/40">
           <p className="text-lg font-medium">

@@ -3,7 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Layout from "@/components/Layout";
+import GoToTop from "@/components/GoToTop";
+
 import Index from "./pages/Index";
 import Levels from "./pages/Levels";
 import LevelDetail from "./pages/LevelDetail";
@@ -22,7 +25,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
+
+        {/* Scroll To Top Button */}
+        <GoToTop />
+
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
@@ -35,8 +43,10 @@ const App = () => (
             <Route path="/levels/:levelId/listening" element={<Listening />} />
             <Route path="/levels/:levelId/practice" element={<Practice />} />
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

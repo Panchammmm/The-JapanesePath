@@ -6,7 +6,7 @@ import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { Input } from "@/components/ui/input";
 import SmartPagination from "@/components/SmartPagination";
 
-const DEFAULT_LIMIT = 24;
+const DEFAULT_LIMIT = 48;
 
 const Vocabulary = () => {
   const { levelId } = useParams();
@@ -77,31 +77,40 @@ const Vocabulary = () => {
         ]}
       />
 
-      <h1 className="text-3xl font-bold mb-2">{level.name} Vocabulary</h1>
+      <div className="sm:flex justify-between">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">{level.name} Vocabulary</h1>
 
-      <p className="text-muted-foreground mb-6">
-        Essential{" "}
-        <span className="font-bold text-destructive text-lg">
-          "{words.length}"
-        </span>{" "}
-        vocabs for {level.name} level.
-      </p>
+          <p className="text-muted-foreground mb-6">
+            Essential{" "}
+            <span className="font-bold text-destructive text-lg">
+              "{words.length}"
+            </span>{" "}
+            Minna no Nihongo vocabs for {level.name} level.
+          </p>
+        </div>
 
-      {/* Search */}
+        {/* Search */}
+        <div>
+          <div className="max-w-sm mb-2">
+            <Input
+              placeholder="Search by vocabulary...."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setPage(1);
+              }}
+            />
+          </div>
 
-      <div className="max-w-sm mb-6">
-        <Input
-          placeholder="Search vocabulary..."
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-        />
+          {/* Result count */}
+          <p className="text-[13px] text-muted-foreground mb-8 ml-3">
+            {total} results
+          </p>
+        </div>
       </div>
 
       {/* No Results */}
-
       {noResults && (
         <div className="text-center py-10 border rounded-xl bg-muted/40">
           <p className="text-lg font-medium">
