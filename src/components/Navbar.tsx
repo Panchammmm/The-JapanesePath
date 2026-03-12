@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,7 @@ const Navbar = () => {
   const links = [
     { to: "/", label: "Home" },
     { to: "/levels", label: "JLPT Levels" },
+    { to: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

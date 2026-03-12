@@ -1575,6 +1575,11 @@
     loupe "^3.1.4"
     tinyrainbow "^2.0.0"
 
+"@web3forms/react@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@web3forms/react/-/react-1.1.3.tgz#950bcc98e2e8c0a2e8e4f4bed08ce8b5a8d70adf"
+  integrity sha512-vwFgIdgxuSMBTCU66KkSxGTKkCJi2LPVWQO9FfxEQdY6d6B37sNgJvSQIoVzXDN2nbht89g0nrcVYIVPdEihZg==
+
 abab@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.6.tgz#41b80f2c871d19686216b82309231cfd3cb3d291"
@@ -3072,10 +3077,10 @@ react-dom@^18.3.1:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
 
-react-hook-form@^7.61.1:
-  version "7.71.1"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.71.1.tgz#6a758958861682cf0eb22131eead684ba3618f66"
-  integrity sha512-9SUJKCGKo8HUSsCO+y0CtqkqI5nNuaDqTxyqPsZPqIwudpj4rCrAz/jZV+jn57bx5gtZKOh3neQu94DXMc+w5w==
+react-hook-form@^7.71.2:
+  version "7.71.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.71.2.tgz#a5f1d2b855be9ecf1af6e74df9b80f54beae7e35"
+  integrity sha512-1CHvcDYzuRUNOflt4MOq3ZM46AronNJtQ1S7tnX6YN4y72qhgiUItpacZUAQ0TyWYci3yz1X+rXaSxiuEm86PA==
 
 react-is@^16.13.1:
   version "16.13.1"

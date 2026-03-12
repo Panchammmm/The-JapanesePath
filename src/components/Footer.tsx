@@ -15,6 +15,7 @@ const Footer = () => (
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <li><Link to="/levels" className="hover:text-primary transition-colors">JLPT Levels</Link></li>
+            <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
           </ul>
         </div>
         <div>
@@ -26,6 +27,9 @@ const Footer = () => (
       </div>
       <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} NihongoPath. Built for learners.
+      </div>
+      <div className="mt-2 text-center text-xs text-muted-foreground">
+        developed by <a href="https://pancham-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-primary transition-colors hover:underline">Pancham Sardar</a>
       </div>
     </div>
   </footer>

@@ -17,6 +17,7 @@ import Reading from "./pages/Reading";
 import Listening from "./pages/Listening";
 import Practice from "./pages/Practice";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/Contactpage";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,8 @@ const App = () => (
             <Route path="/levels/:levelId/reading" element={<Reading />} />
             <Route path="/levels/:levelId/listening" element={<Listening />} />
             <Route path="/levels/:levelId/practice" element={<Practice />} />
+
+            <Route path="/contact" element={<ContactPage />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
