@@ -1,4 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const sections = [
     {
@@ -217,7 +222,10 @@ const sections = [
                 type: "paragraph",
                 text: "If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:",
             },
-            { type: "contact", email: "your@email.com", link: "nihongopath.com/contact" },
+            {
+                type: "contact",
+                link: <Link to="/contact">NihongoPath/contact</Link>,
+            },
         ],
     },
 ];
@@ -227,7 +235,7 @@ type ContentBlock =
     | { type: "subheading"; text: string }
     | { type: "highlight"; text: string }
     | { type: "list"; items: string[] }
-    | { type: "contact"; email: string; link: string };
+    | { type: "contact"; link: string };
 
 function renderContent(block: ContentBlock, idx: number) {
     switch (block.type) {
@@ -267,13 +275,7 @@ function renderContent(block: ContentBlock, idx: number) {
             return (
                 <div key={idx} className="bg-gray-900 rounded-xl p-5 mt-3 space-y-3">
                     <a
-                        href={`mailto:${block.email}`}
-                        className="flex items-center gap-3 text-red-300 hover:text-red-200 text-sm font-medium transition-colors"
-                    >
-                        <span>✉️</span>
-                        {block.email}
-                    </a>
-                    <a
+                        onClick={scrollToTop}
                         href={`https://${block.link}`}
                         className="flex items-center gap-3 text-red-300 hover:text-red-200 text-sm font-medium transition-colors"
                     >
@@ -289,12 +291,39 @@ function renderContent(block: ContentBlock, idx: number) {
 
 export default function PrivacyPolicy() {
     const [activeSection, setActiveSection] = useState<string>("introduction");
+    const isClickScrolling = useRef(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (isClickScrolling.current) return;
+                // Find the topmost visible section
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+                if (visible.length > 0) {
+                    setActiveSection(visible[0].target.id);
+                }
+            },
+            { rootMargin: "-10% 0px -70% 0px", threshold: 0 }
+        );
+
+        sections.forEach((s) => {
+            const el = document.getElementById(s.id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            isClickScrolling.current = true;
             setActiveSection(id);
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            // Re-enable observer after scroll animation finishes
+            setTimeout(() => { isClickScrolling.current = false; }, 800);
         }
     };
 
