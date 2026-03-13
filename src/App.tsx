@@ -17,7 +17,8 @@ import Reading from "./pages/Reading";
 import Listening from "./pages/Listening";
 import Practice from "./pages/Practice";
 import NotFound from "./pages/NotFound";
-import ContactPage from "./pages/Contactpage";
+import ContactPage from "./pages/ContactPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/levels/:levelId/practice" element={<Practice />} />
 
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

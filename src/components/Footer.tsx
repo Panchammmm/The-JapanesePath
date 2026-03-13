@@ -7,7 +7,7 @@ const Footer = () => (
         <div>
           <h3 className="font-semibold mb-3">NihongoPath</h3>
           <p className="text-sm text-muted-foreground">
-            A structured path to mastering Japanese, from N5 to N3.
+            A structured path built for learners, to master Japanese from N5 to N3.
           </p>
         </div>
         <div>
@@ -16,12 +16,13 @@ const Footer = () => (
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <li><Link to="/levels" className="hover:text-primary transition-colors">JLPT Levels</Link></li>
             <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            <li><Link to="/privacypolicy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
           </ul>
         </div>
         <div>
           <h3 className="font-semibold mb-3">Disclaimer</h3>
           <p className="text-sm text-muted-foreground">
-            This site is not affiliated with or endorsed by the Japan Foundation or JLPT. All content is for educational purposes only.
+            Independent educational site for Japanese language learning. Not affiliated with the Japan Foundation or JLPT. All contents are exclusive and for educational purposes only.
           </p>
         </div>
       </div>
